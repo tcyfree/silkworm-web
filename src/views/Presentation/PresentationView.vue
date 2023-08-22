@@ -7,27 +7,25 @@ import DefaultFooter from "../../examples/footers/FooterDefault.vue";
 import Header from "../../examples/Header.vue";
 import FilledInfoCard from "../../examples/cards/infoCards/FilledInfoCard.vue";
 
-//Vue Material Kit 2 components
-import MaterialSocialButton from "@/components/MaterialSocialButton.vue";
 
 // sections
 import PresentationCounter from "./Sections/PresentationCounter.vue";
-import PresentationPages from "./Sections/PresentationPages.vue";
 import PresentationExample from "./Sections/PresentationExample.vue";
-import data from "./Sections/Data/designBlocksData";
 import BuiltByDevelopers from "./Components/BuiltByDevelopers.vue";
-import PresentationTestimonials from "./Sections/PresentationTestimonials.vue";
-import PresentationInformation from "./Sections/PresentationInformation.vue";
 
 //images
 import vueMkHeader from "@/assets/img/silkworm.jpg";
-import wavesWhite from "@/assets/img/waves-white.svg";
 import logoBootstrap from "@/assets/img/logos/bootstrap5.jpg";
 import logoTailwind from "@/assets/img/logos/icon-tailwind.jpg";
 import logoVue from "@/assets/img/logos/vue.jpg";
 import logoAngular from "@/assets/img/logos/angular.jpg";
 import logoReact from "@/assets/img/logos/react.jpg";
 import logoSketch from "@/assets/img/logos/sketch.jpg";
+
+//Vue Material Kit 2 components
+import MaterialInput from "@/components/MaterialInput.vue";
+import MaterialTextArea from "@/components/MaterialTextArea.vue";
+import MaterialButton from "@/components/MaterialButton.vue";
 
 //hooks
 const body = document.getElementsByTagName("body")[0];
@@ -75,7 +73,113 @@ onUnmounted(() => {
 
   <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6">
     <PresentationCounter />
-    <PresentationPages />
+
+  <section>
+      <div class="container">
+        <div class="row" style="justify-content: center;">
+          <div class="col-xl-5 col-lg-6 col-md-7">
+              <div class="card d-flex blur justify-content-center shadow-lg my-sm-0 my-sm-6 mt-8 mb-5">
+                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+                  <div class="bg-gradient-success shadow-success border-radius-lg p-3" style="text-align: center;">
+                    <h3 class="text-white text-success mb-0">原始图像</h3>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <form id="contact-form" method="post" autocomplete="off">
+                    <div class="card-body p-0 my-3">
+                      <div class="card-body p-0 my-3" style="text-align: center;">
+                        <img src="https://cxy.ssdlab.cn/tmp/ct/IMG_20220428_210705.jpg" style="max-width: 100%;" class="img-fluid border-radius-lg" />
+                      </div>
+                      <div class="row">
+                        <div class="col-lg-4 col-md-6 col-sm-3 justify-content-center">
+                          <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 16px;">
+                              请选择蚕龄
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <li><a class="dropdown-item" href="#">三龄</a></li>
+                              <li><a class="dropdown-item" href="#">四龄</a></li>
+                              <li><a class="dropdown-item" href="#">五龄</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <MaterialInput
+                          class="input-group-static mb-4"
+                          type="text"
+                          label="地址"
+                        />
+                      </div>
+                      <div class="form-group mb-0 mt-md-0 mt-4">
+                        <MaterialTextArea
+                          id="message"
+                          class="input-group-static mb-4"
+                          :rows="6"
+                          placeholder="Describe your problem in at least 250 characters"
+                          >补充信息</MaterialTextArea
+                        >
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 text-center">
+                          <MaterialButton
+                            variant="gradient"
+                            color="success"
+                            class="mt-3 mb-0"
+                            >Send Message</MaterialButton
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-5 col-lg-6 col-md-7">
+              <div class="card d-flex blur justify-content-center shadow-lg my-sm-0 my-sm-6 mt-8 mb-5">
+                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+                  <div class="bg-gradient-success shadow-success border-radius-lg p-3" style="text-align: center;">
+                    <h3 class="text-white text-success mb-0">检测结果</h3>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <form id="contact-form" method="post" autocomplete="off">
+                    <div class="card-body p-0 my-3">
+                      <div class="card-body p-0 my-3" style="text-align: center;">
+                        <img src="https://cxy.ssdlab.cn/tmp/comp/IMG_20220428_210705.jpg" style="max-width: 100%;" class="img-fluid border-radius-lg" />
+                      </div>
+                      <!-- add table -->
+                      <div class="row">
+                          <div class="col-md-12 text-center">
+                            <div>
+                              <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th>概率</th>
+                                    <th>类别</th>
+                                    <th>措施</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr v-for="(user) in users" :key="user.id">
+                                    <td>{{ user.id }}</td>
+                                    <td>{{ user.name }}</td>
+                                    <td>{{ user.email }}</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </section>
+
     <BuiltByDevelopers />
 
     <div class="container">
@@ -122,47 +226,6 @@ onUnmounted(() => {
               label: { text: 'Read more' }
             }"
           />
-        </div>
-      </div>
-    </div>
-    <PresentationTestimonials />
-
-    <div
-      class="container-fluid mt-sm-5 border-radius-xl"
-      :style="{
-        background: 'linear-gradient(195deg, rgb(66, 66, 74), rgb(25, 25, 25))'
-      }"
-    >
-      <div
-        class="page-header py-6 py-md-5 my-sm-3 mb-3 border-radius-xl"
-        :style="{
-          backgroundImage: `url(${wavesWhite})`
-        }"
-        loading="lazy"
-      >
-        <span class="mask bg-gradient-dark"></span>
-        <div class="container">
-          <div class="row">
-            <div class="d-flex justify-content-center p-5">
-              <div class="col-lg-8 ms-lg-5 text-center">
-                <h3 class="text-white">
-                  Do you love this awesome UI Kit from Vuejs & Bootstrap?
-                </h3>
-                <p class="text-white text-md">
-                  Cause if you do, it can be yours for FREE. Hit the button
-                  below to navigate to Creative Tim where you can <br />
-                  find the Design System in HTML. Start a new project or give an
-                  old Bootstrap project a new look!
-                </p>
-
-                <a
-                  href="https://www.creative-tim.com/product/vue-material-kit"
-                  class="btn btn-sm mb-0 bg-gradient-success px-5 py-3 mt-4"
-                  >Download Now</a
-                >
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -262,3 +325,21 @@ onUnmounted(() => {
   </div>
   <DefaultFooter />
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      users: [
+        { id: 1, name: "John Doe", email: "john@example.com" },
+        { id: 2, name: "Jane Smith", email: "jane@example.com" },
+        { id: 3, name: "Jane Smith", email: "jane@example.com" },
+        { id: 4, name: "Jane Smith", email: "jane@example.com" },
+        { id: 5, name: "Jane Smith", email: "jane@example.com" },
+        { id: 6, name: "Bob Johnson", email: "bob@example.com" },
+        { id: 7, name: "Bob Johnson", email: "bob@example.com" },
+      ]
+    };
+  }
+};
+</script>
