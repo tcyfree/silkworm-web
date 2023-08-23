@@ -1,5 +1,5 @@
 <script setup>
-import logoDark from "@/assets/img/logo-ct-dark.png";
+import logoDark from "@/assets/img/icon.png";
 defineProps({
   brand: {
     type: Object,
@@ -7,7 +7,7 @@ defineProps({
     logo: String,
     route: "",
     default: () => ({
-      name: "Material Kit 2",
+      name: "桑蚕疾病监测可视化展示平台",
       logo: logoDark,
       route: "/"
     })
@@ -49,71 +49,59 @@ defineProps({
     },
     default: () => [
       {
-        name: "company",
+        name: "公司",
         items: [
           {
-            name: "about us",
+            name: "关于我们",
             href: "https://www.creative-tim.com/presentation"
           },
-          {
-            name: "freebies",
-            href: "https://www.creative-tim.com/templates/free"
-          },
-          {
-            name: "premium tools",
-            href: "https://www.creative-tim.com/templates/premium"
-          },
-          { name: "blog", href: "https://www.creative-tim.com/blog" }
+          { name: "博客", href: "https://www.creative-tim.com/blog" }
         ]
       },
       {
-        name: "resources",
+        name: "资源",
         items: [
-          { name: "illustrations", href: "https://iradesign.io/" },
+          { name: "数据集", href: "https://iradesign.io/" },
           {
             name: "bits & snippets",
             href: "https://www.creative-tim.com/bits"
           },
           {
-            name: "affiliate program",
+            name: "相关项目",
             href: "https://www.creative-tim.com/affiliates/new"
           }
         ]
       },
       {
-        name: "help & support",
+        name: "帮助与支持",
         items: [
           {
-            name: "contact us",
+            name: "联系我们",
             href: "https://www.creative-tim.com/contact-us"
           },
           {
-            name: "knowledge center",
+            name: "帮助中心",
             href: "https://www.creative-tim.com/knowledge-center"
           },
           {
-            name: "custom development",
+            name: "定制开发",
             href: "https://services.creative-tim.com/"
           },
-          {
-            name: "sponsorships",
-            href: "https://www.creative-tim.com/sponsorships"
-          }
         ]
       },
       {
-        name: "legal",
+        name: "法律",
         items: [
           {
-            name: "terms & conditions",
+            name: "条款和条件",
             href: "https://www.creative-tim.com/terms"
           },
           {
-            name: "privacy policy",
+            name: "隐私政策",
             href: "https://www.creative-tim.com/privacy"
           },
           {
-            name: "licenses (EULA)",
+            name: "许可证",
             href: "https://www.creative-tim.com/license"
           }
         ]
@@ -171,10 +159,7 @@ defineProps({
             <p class="text-dark my-4 text-sm font-weight-normal">
               All rights reserved. Copyright ©
               {{ new Date().getFullYear() }}
-              Material Kit by
-              <a href="https://www.creative-tim.com" target="_blank"
-                >Creative Tim</a
-              >.
+              ssdlab.cn
             </p>
           </div>
         </div>

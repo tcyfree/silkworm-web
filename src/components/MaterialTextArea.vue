@@ -20,7 +20,7 @@ defineProps({
 </script>
 <template>
   <div class="input-group">
-    <label :for="id" :class="labelClass"><slot /></label>
+    <label :for="id" :class="labelClass" style="font-size: 1rem;"><slot /></label>
     <textarea
       name="message"
       class="form-control"
