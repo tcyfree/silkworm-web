@@ -15,6 +15,7 @@ import BuiltByDevelopers from "./Components/BuiltByDevelopers.vue";
 //images
 import vueMkHeader from "@/assets/img/silkworm.jpg";
 import previewImg from "@/assets/img/preview.jpg";
+import previewCompressImg from "@/assets/img/preview-compress.png";
 import logoBootstrap from "@/assets/img/logos/bootstrap5.jpg";
 import logoYolov5 from "@/assets/img/logos/yolov5.png";
 import logoTailwind from "@/assets/img/logos/icon-tailwind.jpg";
@@ -89,7 +90,7 @@ onUnmounted(() => {
                   <div class="card-body p-0 my-3">
                     <div class="p-0 my-3" style="display: flex;">
                       <div class="image-container">
-                        <img :src="previewImage" alt="Preview" style="margin: 0 !important;" class="img-fluid border-radius-lg mb-3 uploaded-image"  v-if="previewImage" />
+                        <img :src="previewImage" alt="Preview" style="margin: 0 !important;" class="img-fluid border-radius-lg mb-3 uploaded-image"  data-bs-toggle="modal" data-bs-target="#previewModal"/>
                       </div>
                     </div>
                     <div class="p-0 my-3">
@@ -97,7 +98,7 @@ onUnmounted(() => {
                     </div>
                     <div style="display: flex; align-items: center;">
                       <label style="height: 26px; margin: 0; width: 132px;font-size:1rem;">请选择蚕龄：</label>
-                      <select v-model="selectedAge" class="form-select" style="background-position:95% center; padding-left: 10px; font-size: 1rem;" id="selectInput">
+                      <select v-model="selectedAge" class="form-select" style="background-position:95% center; padding-left: 10px; font-size: 1rem;">
                         <option style="font-size: 2rem;" value=0 selected>三龄</option>
                         <option value=1>四龄</option>
                         <option value=2>五龄</option>
@@ -107,7 +108,7 @@ onUnmounted(() => {
                       <MaterialInput style="margin-top: 15px;" class="input-group-static mb-4" type="text" label="地址"/>
                     </div>
                     <div class="form-group mb-0 mt-md-0 mt-4">
-                      <MaterialTextArea id="message" class="input-group-static mb-4" :rows="2" placeholder="Describe your problem in at least 250 characters">补充信息</MaterialTextArea>
+                      <MaterialTextArea id="message" class="input-group-static mb-4" :rows="1" >补充信息</MaterialTextArea>
                     </div>
                     <div class="row">
                       <div class="col-md-12 text-center">
@@ -134,7 +135,7 @@ onUnmounted(() => {
                     <div class="card-body p-0 my-3">
                       <div class="card-body p-0 my-3" style="display: flex;">
                         <div class="image-container">
-                          <img :src="detectImage" style="margin: 0 !important;" class="img-fluid border-radius-lg mb-3 uploaded-image" />
+                          <img :src="detectImage" style="margin: 0 !important;" class="img-fluid border-radius-lg mb-3 uploaded-image" data-bs-toggle="modal" data-bs-target="#detectModal"/>
                         </div>
                       </div>
                       <!-- add table -->
@@ -326,6 +327,37 @@ onUnmounted(() => {
     </div>
   </div>
   <DefaultFooter />
+  <!-- The Modal -->
+  <div class="modal" id="detectModal">
+    <!-- 设定为视口高度的 80%  -->
+    <div class="modal-dialog" style="max-width: 40%;"> 
+      <div class="modal-content">
+        <!-- Modal body -->
+        <div class="modal-body">
+          <img :src="detectImage" class="img-fluid border-radius-lg mb-3">
+        </div>
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="previewModal">
+    <!-- 设定为视口高度的 80%  -->
+    <div class="modal-dialog" style="max-width: 40%;"> 
+      <div class="modal-content">
+        <!-- Modal body -->
+        <div class="modal-body">
+          <img :src="previewImage" class="img-fluid border-radius-lg mb-3">
+        </div>
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -339,7 +371,7 @@ export default {
       // server_url: "http://172.27.112.1:5003/",
       server_url: "http://cxy.ssdlab.cn/",
       previewImage: previewImg,
-      detectImage: "https://cxy.ssdlab.cn/tmp/comp/IMG_20220428_210700.jpg",
+      detectImage: previewCompressImg,
       selectedAge: 0,
       selectedImg: null,
       detectInfo: [["疑似为血液性脓病", "1.全部淘汰，进行无害化处理。\n 2.对蚕室蚕具和养蚕环境进行彻底消毒。\n 3.查明病原来源，避免再次感染。\n4.重新饲养下一批蚕。\n", "100%"]],
