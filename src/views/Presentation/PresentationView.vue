@@ -87,9 +87,13 @@ onUnmounted(() => {
                 </div>
                 <div class="card-body">
                   <div class="card-body p-0 my-3">
+                    <div class="p-0 my-3" style="display: flex;">
+                      <div class="image-container">
+                        <img :src="previewImage" alt="Preview" style="margin: 0 !important;" class="img-fluid border-radius-lg mb-3 uploaded-image"  v-if="previewImage" />
+                      </div>
+                    </div>
                     <div class="p-0 my-3">
-                      <img :src="previewImage" alt="Preview" style="max-width: 100%;" class="img-fluid border-radius-lg mb-3"  v-if="previewImage" />
-                      <input type="file" @change="selectImage" ref="fileInput"/>
+                      <input type="file" @change="selectImage" style="margin-top: 16px;" ref="fileInput"/>
                     </div>
                     <div style="display: flex; align-items: center;">
                       <label style="height: 26px; margin: 0; width: 132px;font-size:1rem;">请选择蚕龄：</label>
@@ -128,8 +132,10 @@ onUnmounted(() => {
                 <div class="card-body">
                   <form id="contact-form" method="post" autocomplete="off">
                     <div class="card-body p-0 my-3">
-                      <div class="card-body p-0 my-3" style="text-align: center;">
-                        <img :src="detectImage" style="max-width: 100%;" class="img-fluid border-radius-lg" />
+                      <div class="card-body p-0 my-3" style="display: flex;">
+                        <div class="image-container">
+                          <img :src="detectImage" style="margin: 0 !important;" class="img-fluid border-radius-lg mb-3 uploaded-image" />
+                        </div>
                       </div>
                       <!-- add table -->
                       <div class="row">
@@ -437,5 +443,20 @@ export default {
   to {
     transform: rotate(360deg);
   }
+}
+
+/* fixed image width and height */
+.image-container {
+  width: 550px; /* set container height */
+  height: 250px; /* set container width */
+  /* border: 1px solid #ccc; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.uploaded-image {
+  max-height: 100%;
 }
 </style>
