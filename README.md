@@ -3,9 +3,9 @@
 ```bash
 git clone https://github.com/tcyfree/silkworm-web.git
 
-cd silkworm-web &&  npm install or yarn install
+cd silkworm-web &&  npm install
 
-npm dev or yarn run dev
+npm run dev
 ```
 
 Navigate to https://localhost:3000
