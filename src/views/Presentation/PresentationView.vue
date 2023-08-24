@@ -89,7 +89,7 @@ onUnmounted(() => {
                   <div class="card-body p-0 my-3">
                     <div class="p-0 my-3">
                       <img :src="previewImage" alt="Preview" style="max-width: 100%;" class="img-fluid border-radius-lg mb-3"  v-if="previewImage" />
-                      <input type="file" @change="selectImage" />
+                      <input type="file" @change="selectImage" ref="fileInput"/>
                     </div>
                     <div style="display: flex; align-items: center;">
                       <label style="height: 26px; margin: 0; width: 132px;font-size:1rem;">请选择蚕龄：</label>
@@ -324,6 +324,8 @@ onUnmounted(() => {
 
 <script>
 import axios from 'axios';
+import { useToast } from 'vue-toastification';
+// import 'vue-toastification/dist/index.css';
 
 export default {
   data() {
@@ -346,10 +348,19 @@ export default {
         return
       }
       //get suffix
+      const toast = useToast();
       var ext = this.selectedImg.name.substr(this.selectedImg.name.lastIndexOf(".")+1);
       if(!(['png', 'jpg', 'jpeg'].indexOf(ext.toLowerCase()) !== -1)) {
-        alert("只能上传jpg,jpeg,png格式的图片！");
-        location.reload()
+        // alert("只能上传jpg,jpeg,png格式的图片！");
+        toast.error("只能上传jpg,jpeg,png格式的图片！", {
+          position: "top-right",
+          timeout: 3000,
+        })
+        // Not display value
+        this.$refs.fileInput.value = null
+        // Empty select value
+        this.selectedImg = null
+        // location.reload()
         return;
       }
       this.previewImage = URL.createObjectURL(this.selectedImg);
@@ -357,9 +368,13 @@ export default {
     // Upload image
     uploadImage() {
       let uploadImg = this.selectedImg;
+      const toast = useToast();
       // if cancel submit, the process is not processed
       if (uploadImg === null) {
-        alert("请上传图片！");
+        toast.warning("请上传图片！", {
+          position: "top-right",
+          timeout: 3000,
+        });
         return
       }
       this.loading = true;
@@ -371,6 +386,10 @@ export default {
       axios.post(this.server_url + "/upload?age=" + this.selectedAge, param, config)
         .then((response) => {
           this.loading = false;
+          toast.success("检测成功！", {
+            position: "top-right",
+            timeout: 3000,
+          });
           if (response.status != 200) {
             alert("请重新上传，图片格式错误或服务器内部错误！");
           }
