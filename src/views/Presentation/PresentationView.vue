@@ -86,43 +86,31 @@ onUnmounted(() => {
                   </div>
                 </div>
                 <div class="card-body">
-                  <form id="contact-form" method="post" autocomplete="off">
-                    <div class="card-body p-0 my-3">
-                      <div class="p-0 my-3">
-                        <img :src="previewImage" alt="Preview" style="max-width: 100%;" class="img-fluid border-radius-lg mb-3"  v-if="previewImage" />
-                        <input type="file" @change="handleFileChange" />
-                      </div>
-                      <div style="display: flex; align-items: center;">
-                        <label style="height: 26px; margin: 0; width: 132px;font-size:1rem;">请选择蚕龄：</label>
-                        <select class="form-select" style="background-position:95% center; padding-left: 10px; font-size: 1rem;" id="selectInput">
-                          <option style="font-size: 2rem;" value=0 selected>三龄</option>
-                          <option value=1>四龄</option>
-                          <option value=2>五龄</option>
-                        </select>
-                      </div>
-                      <div>
-                        <MaterialInput style="margin-top: 15px;"
-                          class="input-group-static mb-4"
-                          type="text"
-                          label="地址"
-                        />
-                      </div>
-                      <div class="form-group mb-0 mt-md-0 mt-4">
-                        <MaterialTextArea
-                          id="message"
-                          class="input-group-static mb-4"
-                          :rows="2"
-                          placeholder="Describe your problem in at least 250 characters"
-                          >补充信息</MaterialTextArea
-                        >
-                      </div>
-                      <div class="row">
-                        <div class="col-md-12 text-center">
-                          <MaterialButton style="font-size: 1.375rem; width: 12rem !important; margin-bottom: 0px;" variant="gradient" color="info" class="w-auto me-2">AI 检测</MaterialButton>
-                        </div>
+                  <div class="card-body p-0 my-3">
+                    <div class="p-0 my-3">
+                      <img :src="previewImage" alt="Preview" style="max-width: 100%;" class="img-fluid border-radius-lg mb-3"  v-if="previewImage" />
+                      <input type="file" @change="selectImage" />
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                      <label style="height: 26px; margin: 0; width: 132px;font-size:1rem;">请选择蚕龄：</label>
+                      <select v-model="selectedAge" class="form-select" style="background-position:95% center; padding-left: 10px; font-size: 1rem;" id="selectInput">
+                        <option style="font-size: 2rem;" value=0 selected>三龄</option>
+                        <option value=1>四龄</option>
+                        <option value=2>五龄</option>
+                      </select>
+                    </div>
+                    <div>
+                      <MaterialInput style="margin-top: 15px;" class="input-group-static mb-4" type="text" label="地址"/>
+                    </div>
+                    <div class="form-group mb-0 mt-md-0 mt-4">
+                      <MaterialTextArea id="message" class="input-group-static mb-4" :rows="2" placeholder="Describe your problem in at least 250 characters">补充信息</MaterialTextArea>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12 text-center">
+                        <MaterialButton style="font-size: 1.375rem; width: 12rem !important; margin-bottom: 0px;" variant="gradient" color="info" class="w-auto me-2" v-on:click="uploadImage">AI 检测  </MaterialButton>
                       </div>
                     </div>
-                  </form>
+                  </div>
                 </div>
               </div>
             </div>
@@ -137,7 +125,7 @@ onUnmounted(() => {
                   <form id="contact-form" method="post" autocomplete="off">
                     <div class="card-body p-0 my-3">
                       <div class="card-body p-0 my-3" style="text-align: center;">
-                        <img src="https://cxy.ssdlab.cn/tmp/comp/IMG_20220428_210700.jpg" style="max-width: 100%;" class="img-fluid border-radius-lg" />
+                        <img :src="detectImage" style="max-width: 100%;" class="img-fluid border-radius-lg" />
                       </div>
                       <!-- add table -->
                       <div class="row">
@@ -151,10 +139,10 @@ onUnmounted(() => {
                                   </tr>
                                 </thead>
                                 <tbody>
-                                  <tr v-for="(user) in users" :key="user">
-                                    <td style="vertical-align: middle;">{{ user.class }}</td>
+                                  <tr v-for="(row, index) in detectInfo" :key="index">
+                                    <td style="vertical-align: middle;">{{ row[2] }}{{ row[0] }}</td>
                                     <!-- white-space: pre-line; 样式可以让 <td> 元素内的内容保留换行 -->
-                                    <td style="white-space: pre-line; text-align: left; padding-left: 25px;">{{ user.measure }}</td>
+                                    <td style="white-space: pre-line; text-align: left; padding-left: 25px;">{{ row[1] }}</td>
                                   </tr>
                                 </tbody>
                               </table>
@@ -336,43 +324,62 @@ import axios from 'axios';
 export default {
   data() {
     return {
-      users: [
-        { class: "100%疑似为血液性脓病", measure: "1.全部淘汰，进行无害化处理。\n 2.对蚕室蚕具和养蚕环境进行彻底消毒。\n 3.查明病原来源，避免再次感染。\n4.重新饲养下一批蚕。\n" },
-      ],
-      selectedFile: null,
+      // server_url: "http://172.27.112.1:5003/",
+      server_url: "http://cxy.ssdlab.cn/",
       previewImage: previewImg,
-      uploadedImageUrl: null,
-      showbutton: true,
-      selectedAge: 0
+      detectImage: "https://cxy.ssdlab.cn/tmp/comp/IMG_20220428_210700.jpg",
+      selectedAge: 0,
+      selectedImg: null,
+      detectInfo: [["疑似为血液性脓病", "1.全部淘汰，进行无害化处理。\n 2.对蚕室蚕具和养蚕环境进行彻底消毒。\n 3.查明病原来源，避免再次感染。\n4.重新饲养下一批蚕。\n", "100%"]],
     };
   },
   methods: {
-    handleFileChange(event) {
-      this.selectedFile = event.target.files[0];
-      this.previewImage = URL.createObjectURL(this.selectedFile);
-    },
-    triggerFileInput() {
-      this.$refs.fileInput.click();
-    },
-    uploadImage() {
-      if (!this.selectedFile) {
+    // Select image
+    selectImage(event) {
+      this.selectedImg = event.target.files[0];
+      if (typeof this.selectedImg !== 'object') {
+        return
+      }
+      //get suffix
+      var ext = this.selectedImg.name.substr(this.selectedImg.name.lastIndexOf(".")+1);
+      if(!(['png', 'jpg', 'jpeg'].indexOf(ext.toLowerCase()) !== -1)) {
+        alert("只能上传jpg,jpeg,png格式的图片！");
+        location.reload()
         return;
       }
-      const formData = new FormData();
-      formData.append('image', this.selectedFile);
-
-      axios
-        .post('http://cxy.ssdlab.cn/', formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
-        })
-        .then(response => {
-          this.uploadedImageUrl = response.data.imageUrl;
-        })
-        .catch(error => {
-          console.error('Error uploading image:', error);
-        });
+      this.previewImage = URL.createObjectURL(this.selectedImg);
+    },
+    // Upload image
+    uploadImage() {
+      let uploadImg = this.selectedImg;
+      // if cancel submit, the process is not processed
+      if (uploadImg === null) {
+        alert("请上传图片！");
+        return
+      }
+      let param = new FormData(); //创建form对象
+      param.append("file", uploadImg, uploadImg.name); //通过append向form对象添加数据
+      let config = {
+        headers: { "Content-Type": "multipart/form-data" },
+      }; //添加请求头
+      axios.post(this.server_url + "/upload?age=" + this.selectedAge, param, config)
+        .then((response) => {
+          if (response.status != 200) {
+            alert("请重新上传，图片格式错误或服务器内部错误！");
+          }
+          if (response.data.status != 1) {
+            alert(response.data.msg);
+          }
+          console.log(response)
+          let imgInfo = Object.keys(response.data.image_info);
+          // clear initial data
+          this.detectInfo = [] 
+          for (var i = 0; i < imgInfo.length; i++) {
+            response.data.image_info[imgInfo[i]][2] = imgInfo[i];
+            this.detectInfo.push(response.data.image_info[imgInfo[i]]);
+          }
+          this.detectImage = response.data.draw_url
+      });
     },
   },
 };

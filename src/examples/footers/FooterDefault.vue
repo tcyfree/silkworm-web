@@ -63,10 +63,6 @@ defineProps({
         items: [
           { name: "数据集", href: "https://iradesign.io/" },
           {
-            name: "bits & snippets",
-            href: "https://www.creative-tim.com/bits"
-          },
-          {
             name: "相关项目",
             href: "https://www.creative-tim.com/affiliates/new"
           }
