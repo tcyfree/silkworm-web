@@ -222,7 +222,7 @@ onUnmounted(() => {
     <div class="container">
       <div class="row">
         <div class="d-flex flex-column w-100 text-center p-5 mb-8">
-          <h3>Available on these technologies</h3>
+          <h3>技术支撑</h3>
           <div class="d-flex justify-content-center mt-3 flex-wrap" style="align-items: center;">
             <a
               href="https://github.com/ultralytics/yolov5"

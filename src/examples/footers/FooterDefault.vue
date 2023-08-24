@@ -19,23 +19,23 @@ defineProps({
     default: () => [
       {
         icon: '<i class="fab fa-facebook text-lg opacity-8"></i>',
-        link: "https://www.facebook.com/CreativeTim/"
+        // link: "https://www.facebook.com/CreativeTim/"
       },
       {
         icon: '<i class="fab fa-twitter text-lg opacity-8"></i>',
-        link: "https://twitter.com/creativetim"
+        // link: "https://twitter.com/creativetim"
       },
       {
         icon: '<i class="fab fa-dribbble text-lg opacity-8"></i>',
-        link: "https://dribbble.com/creativetim"
+        // link: "https://dribbble.com/creativetim"
       },
       {
         icon: '<i class="fab fa-github text-lg opacity-8"></i>',
-        link: "https://github.com/creativetimofficial"
+        // link: "https://github.com/creativetimofficial"
       },
       {
         icon: '<i class="fab fa-youtube text-lg opacity-8"></i>',
-        link: "https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w"
+        // link: "https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w"
       }
     ]
   },
@@ -53,9 +53,11 @@ defineProps({
         items: [
           {
             name: "关于我们",
-            href: "https://www.creative-tim.com/presentation"
+            // href: "https://www.creative-tim.com/presentation"
           },
-          { name: "博客", href: "https://www.creative-tim.com/blog" }
+          { name: "博客", 
+          // href: "https://www.creative-tim.com/blog" 
+        }
         ]
       },
       {
@@ -64,7 +66,7 @@ defineProps({
           { name: "数据集", href: "https://iradesign.io/" },
           {
             name: "相关项目",
-            href: "https://www.creative-tim.com/affiliates/new"
+            // href: "https://www.creative-tim.com/affiliates/new"
           }
         ]
       },
@@ -73,15 +75,15 @@ defineProps({
         items: [
           {
             name: "联系我们",
-            href: "https://www.creative-tim.com/contact-us"
+            // href: "https://www.creative-tim.com/contact-us"
           },
           {
             name: "帮助中心",
-            href: "https://www.creative-tim.com/knowledge-center"
+            // href: "https://www.creative-tim.com/knowledge-center"
           },
           {
             name: "定制开发",
-            href: "https://services.creative-tim.com/"
+            // href: "https://services.creative-tim.com/"
           },
         ]
       },
@@ -90,15 +92,15 @@ defineProps({
         items: [
           {
             name: "条款和条件",
-            href: "https://www.creative-tim.com/terms"
+            // href: "https://www.creative-tim.com/terms"
           },
           {
             name: "隐私政策",
-            href: "https://www.creative-tim.com/privacy"
+            // href: "https://www.creative-tim.com/privacy"
           },
           {
             name: "许可证",
-            href: "https://www.creative-tim.com/license"
+            // href: "https://www.creative-tim.com/license"
           }
         ]
       }
