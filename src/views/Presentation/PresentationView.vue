@@ -110,6 +110,10 @@ onUnmounted(() => {
                         <MaterialButton style="font-size: 1.375rem; width: 12rem !important; margin-bottom: 0px;" variant="gradient" color="info" class="w-auto me-2" v-on:click="uploadImage">AI 检测  </MaterialButton>
                       </div>
                     </div>
+                    <!-- loading overlay-->
+                    <div v-if="loading" class="loading-overlay">
+                      <div class="spinner"></div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -331,6 +335,7 @@ export default {
       selectedAge: 0,
       selectedImg: null,
       detectInfo: [["疑似为血液性脓病", "1.全部淘汰，进行无害化处理。\n 2.对蚕室蚕具和养蚕环境进行彻底消毒。\n 3.查明病原来源，避免再次感染。\n4.重新饲养下一批蚕。\n", "100%"]],
+      loading: false
     };
   },
   methods: {
@@ -357,6 +362,7 @@ export default {
         alert("请上传图片！");
         return
       }
+      this.loading = true;
       let param = new FormData(); //创建form对象
       param.append("file", uploadImg, uploadImg.name); //通过append向form对象添加数据
       let config = {
@@ -364,6 +370,7 @@ export default {
       }; //添加请求头
       axios.post(this.server_url + "/upload?age=" + this.selectedAge, param, config)
         .then((response) => {
+          this.loading = false;
           if (response.status != 200) {
             alert("请重新上传，图片格式错误或服务器内部错误！");
           }
@@ -384,3 +391,32 @@ export default {
   },
 };
 </script>
+<style>
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #000;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+</style>
