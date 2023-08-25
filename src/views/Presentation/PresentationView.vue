@@ -18,9 +18,9 @@ import previewImg from "@/assets/img/preview.jpg";
 import previewCompressImg from "@/assets/img/preview-compress.png";
 import logoBootstrap from "@/assets/img/logos/bootstrap5.jpg";
 import logoYolov5 from "@/assets/img/logos/yolov5.png";
-import logoTailwind from "@/assets/img/logos/icon-tailwind.jpg";
+import logoFlask from "@/assets/img/logos/flaks-logo.png";
 import logoVue from "@/assets/img/logos/vue.jpg";
-import logoAngular from "@/assets/img/logos/angular.jpg";
+import logoDocker from "@/assets/img/logos/docker.png";
 import logoReact from "@/assets/img/logos/react.jpg";
 import logoSketch from "@/assets/img/logos/sketch.jpg";
 
@@ -252,17 +252,17 @@ onUnmounted(() => {
               />
             </a>
             <a
-              class="opacity-5 ms-3"
-              href="#"
+              class="opacity-9 ms-3"
+              href="https://flask.palletsprojects.com/en/2.3.x/"
               data-bs-toggle="tooltip"
               data-bs-placement="bottom"
-              title="Coming Soon"
+              title="Flask is a micro web framework written in Python."
             >
               <img
-                :src="logoTailwind"
+                :src="logoFlask"
                 alt="title"
                 loading="lazy"
-                :style="{ height: '90px' }"
+                :style="{ height: '60px' }"
               />
             </a>
             <a
@@ -280,17 +280,17 @@ onUnmounted(() => {
               />
             </a>
             <a
-              class="opacity-5"
-              href="#"
+              class="opacity-9"
+              href="https://docs.docker.com/get-started/overview/"
               data-bs-toggle="tooltip"
               data-bs-placement="bottom"
-              title="Coming Soon"
+              title="Docker is an open platform for developing, shipping, and running applications."
             >
               <img
-                :src="logoAngular"
+                :src="logoDocker"
                 alt="title"
                 loading="lazy"
-                :style="{ height: '90px' }"
+                :style="{ height: '75px' }"
               />
             </a>
             <a
