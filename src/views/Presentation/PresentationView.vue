@@ -28,6 +28,7 @@ import logoSketch from "@/assets/img/logos/sketch.jpg";
 import MaterialInput from "@/components/MaterialInput.vue";
 import MaterialTextArea from "@/components/MaterialTextArea.vue";
 import MaterialButton from "@/components/MaterialButton.vue";
+import MaterialSocialButton from "@/components/MaterialSocialButton.vue";
 
 //hooks
 const body = document.getElementsByTagName("body")[0];
@@ -322,6 +323,18 @@ onUnmounted(() => {
         </div>
       </div>
     </div>
+    <div class="container">
+        <div class="row">
+          <div class="col-lg-3 ms-auto">
+            <p class="lead mb-0">感谢您的分享！<span class='material-icons'>ios_share</span></p>
+          </div>
+          <div class="col-lg-5 me-lg-auto my-lg-auto text-lg-end mt-5">
+            <MaterialSocialButton route="#" component="twitter" color="twitter" label="Tweet"/>
+            <MaterialSocialButton route="#" component="facebook-square" color="facebook" label="Share"/>
+            <MaterialSocialButton route="#" component="pinterest" color="pinterest" label="Pin it"/>
+          </div>
+        </div>
+      </div>
   </div>
   <DefaultFooter />
   <!-- The Modal -->
