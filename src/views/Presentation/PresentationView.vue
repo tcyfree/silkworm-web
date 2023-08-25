@@ -5,7 +5,9 @@ import { onMounted, onUnmounted } from "vue";
 import NavbarDefault from "../..//examples/navbars/NavbarDefault.vue";
 import DefaultFooter from "../../examples/footers/FooterDefault.vue";
 import Header from "../../examples/Header.vue";
-import FilledInfoCardNoLink from "../../examples/cards/infoCards/FilledInfoCardNoLink.vue";
+import RotatingCard from "../../examples/cards/rotatingCards/RotatingCard.vue";
+import RotatingCardFront from "../../examples/cards/rotatingCards/RotatingCardFront.vue";
+import RotatingCardBack from "../../examples/cards/rotatingCards/RotatingCardBack.vue";
 
 
 // sections
@@ -14,6 +16,7 @@ import BuiltByDevelopers from "./Components/BuiltByDevelopers.vue";
 
 //images
 import vueMkHeader from "@/assets/img/silkworm.jpg";
+import cameraImg from "@/assets/img/camera.png";
 import previewImg from "@/assets/img/preview.jpg";
 import previewCompressImg from "@/assets/img/preview-compress.png";
 import logoBootstrap from "@/assets/img/logos/bootstrap5.jpg";
@@ -175,7 +178,28 @@ onUnmounted(() => {
     <div class="container" style="margin-top: 20px;">
       <div class="row">
         <div class="col-lg-4">
-          <FilledInfoCardNoLink
+          <RotatingCard>
+            <RotatingCardFront
+              :style="`background-image: url(${cameraImg})`"
+              loading="lazy"
+              icon="add_a_photo"
+              title="桑蚕疾病图像样本采集模块"
+              description="数据采集来自实际生产和实验室环境的正常和患病桑蚕样本。"
+            />
+
+            <RotatingCardBack
+              image="https://images.unsplash.com/photo-1498889444388-e67ea62c464b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1365&q=80"
+              title="Discover More"
+              description="数据采集来自实际生产和实验室环境的正常和患病桑蚕样本。并且我们也运用对抗生成网络（GAN）图像生成技术，在人工标记的样本上进行学习，生成更多高质量的训练样本。这有助于解决高成本的样本标注和样本不足的问题，更准确地捕捉不同疾病情况，从而在实际应用中取得更好的效果。"
+              :action="[
+                {
+                  route: './/sections/page-sections/hero-sections.html',
+                  label: '更多',
+                },
+              ]"
+            />
+          </RotatingCard>
+          <!-- <FilledInfoCardNoLink
             class="p-4"
             :color="{ text: 'white', background: 'bg-gradient-success' }"
             :icon="{ component: 'add_a_photo', color: 'white' }"
@@ -185,10 +209,30 @@ onUnmounted(() => {
               route:'',
               label: { text: '更多', color: 'white' }
             }"
-          />
+          /> -->
         </div>
         <div class="col-lg-4">
-          <FilledInfoCardNoLink
+          <RotatingCard>
+            <RotatingCardFront
+              image="https://images.unsplash.com/photo-1569683795645-b62e50fbf103?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"
+              icon="gps_fixed"
+              title="桑蚕目标检测算法模块"
+              description="基于改进的YOLOv5方法，可以有效地降低识别所需的时间成本。"
+            />
+
+            <RotatingCardBack
+              image="https://images.unsplash.com/photo-1498889444388-e67ea62c464b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1365&q=80"
+              title="Discover More"
+              description="从蚕盘视频监控或者照片作为识别桑蚕疾病的前置步骤，其效率严重影响后期疾病识别的准确性。通过采用基于改进的YOLOv5方法，可以有效地降低识别所需的时间成本，从而显著提升对桑蚕个体进行扫描检测时的识别准确率。这种方法不仅可以更快速地发现潜在的疾病迹象，还能够在更广泛的环境中实现更准确的检测结果。"
+              :action="[
+                {
+                  route: './/sections/page-sections/hero-sections.html',
+                  label: '更多',
+                },
+              ]"
+            />
+          </RotatingCard>
+          <!-- <FilledInfoCardNoLink
             class="px-lg-1 mt-lg-0 mt-4 p-4"
             :color="{ text: 'white', background: 'bg-gradient-success' }"
             :icon="{ component: 'gps_fixed', color: 'white' }"
@@ -198,10 +242,30 @@ onUnmounted(() => {
               route:'',
               label: { text: '更多', color: 'white' }
             }"
-          />
+          /> -->
         </div>
         <div class="col-lg-4">
-          <FilledInfoCardNoLink
+          <RotatingCard>
+            <RotatingCardFront
+              image="https://images.unsplash.com/photo-1544717302-de2939b7ef71?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+              icon="grid_view"
+              title="桑蚕疾病分类识别算法模块"
+              description="拟采用改进的残差网络ResNet和InceptionNet相融合的模型。"
+            />
+
+            <RotatingCardBack
+              image="https://images.unsplash.com/photo-1498889444388-e67ea62c464b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1365&q=80"
+              title="Discover More"
+              description="基于深度卷积神经网络的图像分类模型由于受到样本质量的影响，在特征学习的过程中，可能呈现出模型难收敛、模型泛化性不高等不足，为了解决该问题，拟采用改进的残差网络ResNet和InceptionNet相融合的模型，根据桑蚕病征特点，优化深度网络结构，减少模型自由参数个数，降低网络的训练难度。"
+              :action="[
+                {
+                  route: './/sections/page-sections/hero-sections.html',
+                  label: '更多',
+                },
+              ]"
+            />
+          </RotatingCard>
+          <!-- <FilledInfoCardNoLink
             class="px-lg-1 mt-lg-0 mt-4 p-4"
             :color="{ text: 'white', background: 'bg-gradient-success' }"
             :icon="{ component: 'grid_view', color: 'white' }"
@@ -212,7 +276,7 @@ onUnmounted(() => {
                 'https://www.creative-tim.com/learning-lab/vue/utilities/material-kit/',
               label: { text: '更多', color: 'white' }
             }"
-          />
+          /> -->
         </div>
       </div>
     </div>
