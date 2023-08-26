@@ -155,6 +155,30 @@ watch(
           </li>
           <li class="nav-item dropdown dropdown-hover mx-2">
             <a
+              class="nav-link ps-2 d-flex cursor-pointer align-items-center"
+            >
+              <i class="material-icons opacity-6 me-2 text-md" :class="getTextColor()">verified</i>
+              <router-link :class="getTextColor()" to="/">项目意义</router-link>
+            </a>
+          </li>
+          <li class="nav-item dropdown dropdown-hover mx-2">
+            <a
+              class="nav-link ps-2 d-flex cursor-pointer align-items-center"
+            >
+              <i class="material-icons opacity-6 me-2 text-md" :class="getTextColor()">biotech</i>
+              <router-link :class="getTextColor()" to="/">科研条件</router-link>
+            </a>
+          </li>
+          <li class="nav-item dropdown dropdown-hover mx-2">
+            <a
+              class="nav-link ps-2 d-flex cursor-pointer align-items-center"
+            >
+              <i class="material-icons opacity-6 me-2 text-md" :class="getTextColor()">grid_view</i>
+              <router-link :class="getTextColor()" to="/">技术支撑</router-link>
+            </a>
+          </li>
+          <li class="nav-item dropdown dropdown-hover mx-2">
+            <a
               role="button"
               class="nav-link ps-2 d-flex cursor-pointer align-items-center"
               :class="getTextColor()"
@@ -165,9 +189,9 @@ watch(
               <i
                 class="material-icons opacity-6 me-2 text-md"
                 :class="getTextColor()"
-                >dashboard</i
+                >people_alt</i
               >
-              Pages
+              关于我们
               <img
                 :src="getArrowColor()"
                 alt="down-arrow"
@@ -190,7 +214,6 @@ watch(
                       <div
                         class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1"
                       >
-                        Landing Pages
                       </div>
                       <RouterLink
                         :to="{ name: 'about' }"
@@ -210,17 +233,6 @@ watch(
                       >
                         <span>Author</span>
                       </RouterLink>
-                      <div
-                        class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-0 mt-3"
-                      >
-                        Account
-                      </div>
-                      <RouterLink
-                        :to="{ name: 'signin-basic' }"
-                        class="dropdown-item border-radius-md"
-                      >
-                        <span>Sign In</span>
-                      </RouterLink>
                     </div>
                   </div>
                 </div>
@@ -229,7 +241,6 @@ watch(
                 <div
                   class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-0"
                 >
-                  Landing Pages
                 </div>
                 <RouterLink
                   :to="{ name: 'about' }"
@@ -248,17 +259,6 @@ watch(
                   class="dropdown-item border-radius-md"
                 >
                   <span>Author</span>
-                </RouterLink>
-                <div
-                  class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-0 mt-3"
-                >
-                  Account
-                </div>
-                <RouterLink
-                  :to="{ name: 'signin-basic' }"
-                  class="dropdown-item border-radius-md"
-                >
-                  <span>Sign In</span>
                 </RouterLink>
               </div>
             </div>
