@@ -7,6 +7,8 @@ import { useWindowsWidth } from "../../assets/js/useWindowsWidth";
 import ArrDark from "@/assets/img/down-arrow-dark.svg";
 import downArrow from "@/assets/img/down-arrow.svg";
 import DownArrWhite from "@/assets/img/down-arrow-white.svg";
+import iconAvator from "@/assets/img/icon.png";
+import defaultAvator from "@/assets/img/default-avator.png";
 
 const props = defineProps({
   action: {
@@ -122,25 +124,7 @@ watch(
       >
         
       </RouterLink>
-      <RouterLink
-        class="navbar-brand d-block d-md-none"
-        :class="
-          props.transparent || props.dark
-            ? 'text-white'
-            : 'font-weight-bolder ms-sm-3'
-        "
-        to="/"
-        rel="tooltip"
-        title="Designed and Coded by Creative Tim"
-        data-placement="bottom"
-      >
-        Material Design
-      </RouterLink>
-      <a
-        href="https://www.creative-tim.com/product/vue-material-kit-pro"
-        class="btn btn-sm bg-gradient-success mb-0 ms-auto d-lg-none d-block"
-        >Buy Now</a
-      >
+      <a Placeholder ></a>
       <button
         class="navbar-toggler shadow-none ms-2"
         type="button"
@@ -908,20 +892,45 @@ watch(
               </div>
             </div>
           </li>
-        </ul>
-        <!-- <ul class="navbar-nav d-lg-block d-none">
-          <li class="nav-item">
-            <a
-              :href="action.route"
-              class="btn btn-sm mb-0"
-              :class="action.color"
-              onclick="smoothToPricing('pricing-soft-ui')"
-              >{{ action.label }}</a
-            >
+          <li class="nav-item dropdown dropdown-hover mx-2">
+            <div v-if="LoggedIn" class="nav-link d-flex cursor-pointer align-items-center">
+                <img :src="iconAvator" loading="lazy" :style="{ height: '25px'}" data-bs-toggle="modal" data-bs-target="#LogOut"/>
+            </div>
+            <div v-else class="nav-link d-flex cursor-pointer align-items-center">
+              <RouterLink :to="{ name: 'signin-basic' }">
+                <img :src="defaultAvator" loading="lazy" :style="{ height: '25px'}"/>
+              </RouterLink>
+            </div>
           </li>
-        </ul> -->
+        </ul>
       </div>
     </div>
   </nav>
   <!-- End Navbar -->
+  <!-- The Modal -->
+  <div class="modal" id="LogOut">
+    <!-- 设定为视口高度的 80%  -->
+    <div class="modal-dialog" style="max-width: 40%;"> 
+      <div class="modal-content">
+        <!-- Modal body -->
+        <div class="modal-body" style="display: flex;justify-content: center;align-items: center;height: 7rem;">
+          <button type="button" class="btn btn-danger" style="font-size: 1.375rem; margin-bottom: 0;">退出登录</button>
+        </div>
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-bs-dismiss="modal" style="margin-bottom: 0;">关闭</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      LoggedIn: false
+    };
+  },
+}
+</script>
+

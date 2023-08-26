@@ -412,7 +412,7 @@ onUnmounted(() => {
         </div>
         <!-- Modal footer -->
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" style="margin-bottom: 0;">关闭</button>
         </div>
       </div>
     </div>
@@ -427,7 +427,7 @@ onUnmounted(() => {
         </div>
         <!-- Modal footer -->
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" style="margin-bottom: 0;">关闭</button>
         </div>
       </div>
     </div>
