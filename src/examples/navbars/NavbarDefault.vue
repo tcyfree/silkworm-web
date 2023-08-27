@@ -751,7 +751,7 @@ watch(
                 <img :src="iconAvator" loading="lazy" :style="{ height: '25px'}" data-bs-toggle="modal" data-bs-target="#LogOut"/>
             </div>
             <div v-else class="nav-link d-flex cursor-pointer align-items-center">
-              <RouterLink :to="{ name: 'signin-basic' }">
+              <RouterLink :to="{ name: 'signin-basic' }" title="未登录">
                 <img :src="defaultAvator" loading="lazy" :style="{ height: '25px'}"/>
               </RouterLink>
             </div>
