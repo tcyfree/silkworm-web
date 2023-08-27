@@ -60,19 +60,15 @@ onMounted(() => {
                 </div>
               </div>
               <div class="card-body">
-                <form role="form" class="text-start">
-                  <MaterialInput
-                    id="email"
-                    class="input-group-outline my-3"
-                    :label="{ text: '账号', class: 'form-label' }"
-                    type="text"
-                  />
-                  <MaterialInput
-                    id="password"
-                    class="input-group-outline mb-3"
-                    :label="{ text: '密码', class: 'form-label' }"
-                    type="password"
-                  />
+                <form role="form" class="text-start" @submit.prevent="LogIn">
+                  <div class="input-group input-group-outline my-3">
+                    <label style="font-size: 1rem;" class="form-label">账号</label>
+                    <input type="text" class="form-control" v-model="username"/>
+                  </div>
+                  <div class="input-group input-group-outline mb-3">
+                    <label style="font-size: 1rem;" class="form-label">密码</label>
+                    <input type="password" class="form-control" v-model="password"/>
+                  </div>
                   <MaterialSwitch
                     class="d-flex align-items-center mb-3"
                     id="rememberMe"
@@ -107,3 +103,53 @@ onMounted(() => {
     </div>
   </Header>
 </template>
+<script>
+import axios from 'axios';
+import { useToast } from 'vue-toastification';
+
+export default {
+  data() {
+    return {
+      server_url: "http://127.0.0.1:5000",
+      username: '',
+      password: '',
+    };
+  },
+  methods: {
+    LogIn() {
+      const toast = useToast();
+      if (!this.username || !this.password) {
+        toast.warning("请填写账号或密码", {
+          position: "top-right",
+          timeout: 3000,
+        });
+        return
+      }
+      const data = {
+        username: this.username,
+        password: this.password
+      };
+      axios.post(this.server_url + "/api/passport/login", data)
+        .then((response) => {
+          if (response.data.success === true) {
+            toast.success(response.data.msg, {
+              position: "top-right",
+              timeout: 3000,
+            });
+          } else {
+            toast.error(response.data.msg, {
+              position: "top-right",
+              timeout: 3000,
+            });
+          }
+        })
+        .catch(error => {
+          toast.error('Login error', {
+              position: "top-right",
+              timeout: 3000,
+          });
+        });
+    },
+  },
+};
+</script>
