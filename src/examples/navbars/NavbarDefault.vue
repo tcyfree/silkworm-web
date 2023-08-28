@@ -768,7 +768,7 @@ watch(
       <div class="modal-content">
         <!-- Modal body -->
         <div class="modal-body" style="display: flex;justify-content: center;align-items: center;height: 7rem;">
-          <button type="button" class="btn btn-danger" style="font-size: 1.375rem; margin-bottom: 0;">退出登录</button>
+          <button type="button" class="btn btn-danger" @click="LogOut" style="font-size: 1.375rem; margin-bottom: 0;">退出登录</button>
         </div>
         <!-- Modal footer -->
         <div class="modal-footer">
@@ -779,12 +779,44 @@ watch(
   </div>
 </template>
 <script>
+import { useToast } from 'vue-toastification';
+import axios from 'axios';
+
 export default {
   data() {
     return {
+      server_url: "http://127.0.0.1:5000",
       LoggedIn: localStorage.getItem('LoggedIn')
     };
   },
+  methods: {
+    LogOut() {
+      const toast = useToast();
+      axios.post(this.server_url + "/api/passport/logout")
+        .then((response) => {
+          if (response.data.success === true) {
+            toast.success(response.data.msg, {
+              position: "top-right",
+              timeout: 3000,
+            });
+            localStorage.setItem('LoggedIn', '')
+            window.location.href = '/';
+          } else {
+            toast.error(response.data.msg, {
+              position: "top-right",
+              timeout: 3000,
+            });
+          }
+        })
+        .catch(error => {
+          console.log(error)
+          toast.error('Login error', {
+              position: "top-right",
+              timeout: 3000,
+          });
+        });
+    }
+  }
 }
 </script>
 
