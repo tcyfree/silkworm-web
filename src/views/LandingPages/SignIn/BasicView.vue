@@ -63,12 +63,18 @@ onMounted(() => {
                 <form role="form" class="text-start" @submit.prevent="LogIn">
                   <div class="input-group input-group-outline my-3">
                     <label style="font-size: 1rem;" class="form-label">账号</label>
-                    <input type="text" class="form-control" v-model="username"/>
+                    <input id="username" type="text" class="form-control"/>
                   </div>
-                  <div class="input-group input-group-outline mb-3">
+                  <!-- <div class="input-group input-group-outline mb-3">
                     <label style="font-size: 1rem;" class="form-label">密码</label>
                     <input type="password" class="form-control" v-model="password"/>
-                  </div>
+                  </div> -->
+                  <MaterialInput
+                    id="password"
+                    class="input-group-outline mb-3"
+                    :label="{ text: '密码', class: 'form-label' }"
+                    type="password"
+                  />
                   <MaterialSwitch
                     class="d-flex align-items-center mb-3"
                     id="rememberMe"
@@ -118,7 +124,10 @@ export default {
   methods: {
     LogIn() {
       const toast = useToast();
-      if (!this.username || !this.password) {
+      let password = document.getElementById("password").value;
+      let username = document.getElementById("username").value;
+      console.log(username, password)
+      if (!username || !password) {
         toast.warning("请填写账号或密码", {
           position: "top-right",
           timeout: 3000,
@@ -126,8 +135,8 @@ export default {
         return
       }
       const data = {
-        username: this.username,
-        password: this.password
+        username: username,
+        password: password
       };
       axios.post(this.server_url + "/api/passport/login", data)
         .then((response) => {
