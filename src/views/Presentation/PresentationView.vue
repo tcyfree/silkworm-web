@@ -102,17 +102,17 @@ onUnmounted(() => {
                     </div>
                     <div style="display: flex; align-items: center;">
                       <label style="height: 26px; margin: 0; width: 132px;font-size:1rem;">请选择蚕龄：</label>
-                      <select v-model="selectedAge" class="form-select" style="background-position:95% center; padding-left: 10px; font-size: 1rem;">
+                      <select id="select-age" class="form-select" style="background-position:95% center; padding-left: 10px; font-size: 1rem;">
                         <option style="font-size: 2rem;" value=0 selected>三龄</option>
                         <option value=1>四龄</option>
                         <option value=2>五龄</option>
                       </select>
                     </div>
                     <div>
-                      <MaterialInput style="margin-top: 15px;" class="input-group-static mb-4" type="text" label="地址"/>
+                      <MaterialInput id="address" style="margin-top: 15px;" class="input-group-static mb-4" type="text" label="地址"/>
                     </div>
                     <div class="form-group mb-0 mt-md-0 mt-4">
-                      <MaterialTextArea id="message" class="input-group-static mb-4" :rows="1" >补充信息</MaterialTextArea>
+                      <MaterialTextArea id="remark" class="input-group-static mb-4" :rows="1" >补充信息</MaterialTextArea>
                     </div>
                     <div class="row">
                       <div class="col-md-12 text-center">
@@ -481,6 +481,10 @@ export default {
     uploadImage() {
       let uploadImg = this.selectedImg;
       const toast = useToast();
+      let selectedAge = document.getElementById("select-age").value;
+      let address = document.getElementById("address").value;
+      let remark = document.getElementById("remark").value;
+      console.log(selectedAge)
       // if cancel submit, the process is not processed
       if (uploadImg === null) {
         toast.warning("请上传图片！", {
@@ -495,7 +499,7 @@ export default {
       let config = {
         headers: { "Content-Type": "multipart/form-data" },
       }; //添加请求头
-      axios.post(this.server_url + "/upload?age=" + this.selectedAge, param, config)
+      axios.post(this.server_url + "/upload?age=" + selectedAge + "&address=" + address + "&remark=" + remark, param, config)
         .then((response) => {
           this.loading = false;
           toast.success("检测成功！", {
