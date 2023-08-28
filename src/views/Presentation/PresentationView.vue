@@ -21,6 +21,7 @@ import previewImg from "@/assets/img/preview.jpg";
 import previewCompressImg from "@/assets/img/preview-compress.png";
 import logoBootstrap from "@/assets/img/logos/bootstrap5.jpg";
 import logoYolov5 from "@/assets/img/logos/yolov5.png";
+import logoNginx from "@/assets/img/logos/nginx.svg";
 import logoFlask from "@/assets/img/logos/flaks-logo.png";
 import logoVue from "@/assets/img/logos/vue.jpg";
 import logoDocker from "@/assets/img/logos/docker.png";
@@ -356,14 +357,14 @@ onUnmounted(() => {
               />
             </a>
             <a
-              href="https://www.creative-tim.com/product/material-kit-react-pro"
+              href="https://www.nginx.com/resources/wiki/"
               class="mx-3"
               data-bs-toggle="tooltip"
               data-bs-placement="bottom"
-              title="React – A JavaScript library for building user interfaces"
+              title="NGINX: Advanced Load Balancer, Web Server, & Reverse Proxy"
             >
               <img
-                :src="logoReact"
+                :src="logoNginx"
                 alt="title"
                 loading="lazy"
                 :style="{ height: '90px' }"
