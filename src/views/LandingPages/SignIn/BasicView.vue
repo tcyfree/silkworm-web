@@ -146,6 +146,7 @@ export default {
               timeout: 3000,
             });
             localStorage.setItem('LoggedIn', true)
+            window.location.href = '/';
           } else {
             toast.error(response.data.msg, {
               position: "top-right",
@@ -154,6 +155,7 @@ export default {
           }
         })
         .catch(error => {
+          console.log(error)
           toast.error('Login error', {
               position: "top-right",
               timeout: 3000,
