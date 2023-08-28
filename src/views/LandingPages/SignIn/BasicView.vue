@@ -145,6 +145,7 @@ export default {
               position: "top-right",
               timeout: 3000,
             });
+            localStorage.setItem('LoggedIn', true)
           } else {
             toast.error(response.data.msg, {
               position: "top-right",

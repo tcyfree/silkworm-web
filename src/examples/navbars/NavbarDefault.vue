@@ -782,7 +782,7 @@ watch(
 export default {
   data() {
     return {
-      LoggedIn: false
+      LoggedIn: localStorage.getItem('LoggedIn')
     };
   },
 }
