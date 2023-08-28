@@ -61,6 +61,7 @@ onMounted(() => {
               </div>
               <div class="card-body">
                 <form role="form" class="text-start" @submit.prevent="LogIn">
+                  <div class="guest-account">访客账号: test &nbsp; 密码: 123456</div>
                   <div class="input-group input-group-outline my-3">
                     <label style="font-size: 1rem;" class="form-label">账号</label>
                     <input id="username" type="text" class="form-control"/>
@@ -165,3 +166,10 @@ export default {
   },
 };
 </script>
+<style scoped>
+.guest-account {
+    text-align: center;
+    color: #9abcda!important;
+    font-size: 1rem;
+}
+</style>
