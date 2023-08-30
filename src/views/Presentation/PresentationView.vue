@@ -408,7 +408,7 @@ onUnmounted(() => {
     <div class="modal-dialog" style="max-width: 40%;"> 
       <div class="modal-content">
         <!-- Modal body -->
-        <div class="modal-body">
+        <div class="modal-body" style="display: flex;justify-content: center;">
           <img :src="detectImage" class="img-fluid border-radius-lg mb-3">
         </div>
         <!-- Modal footer -->
@@ -423,7 +423,7 @@ onUnmounted(() => {
     <div class="modal-dialog" style="max-width: 40%;"> 
       <div class="modal-content">
         <!-- Modal body -->
-        <div class="modal-body">
+        <div class="modal-body" style="display: flex;justify-content: center;">
           <img :src="previewImage" class="img-fluid border-radius-lg mb-3">
         </div>
         <!-- Modal footer -->
