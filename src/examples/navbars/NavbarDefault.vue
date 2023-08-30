@@ -785,7 +785,8 @@ import axios from 'axios';
 export default {
   data() {
     return {
-      server_url: "http://127.0.0.1:5000",
+      // server_url: "http://127.0.0.1:5003",
+      server_url: "http://cxy.ssdlab.cn/",
       LoggedIn: localStorage.getItem('LoggedIn')
     };
   },

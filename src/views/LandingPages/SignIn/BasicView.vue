@@ -61,7 +61,7 @@ onMounted(() => {
               </div>
               <div class="card-body">
                 <form role="form" class="text-start" @submit.prevent="LogIn">
-                  <div class="guest-account">访客账号: test &nbsp; 密码: 123456</div>
+                  <div class="guest-account">账号: test &nbsp; 密码: 123456</div>
                   <div class="input-group input-group-outline my-3">
                     <label style="font-size: 1rem;" class="form-label">账号</label>
                     <input id="username" type="text" class="form-control"/>
@@ -117,7 +117,8 @@ import { useToast } from 'vue-toastification';
 export default {
   data() {
     return {
-      server_url: "http://127.0.0.1:5000",
+      // server_url: "http://127.0.0.1:5003",
+      server_url: "http://cxy.ssdlab.cn",
       username: '',
       password: '',
     };

@@ -443,7 +443,7 @@ import { useToast } from 'vue-toastification';
 export default {
   data() {
     return {
-      // server_url: "http://172.27.112.1:5003/",
+      // server_url: "http://127.0.0.1:5003/",
       server_url: "http://cxy.ssdlab.cn/",
       previewImage: previewImg,
       detectImage: previewCompressImg,
@@ -529,7 +529,21 @@ export default {
             this.detectInfo.push(response.data.image_info[imgInfo[i]]);
           }
           this.detectImage = response.data.draw_url
-      });
+        }).catch(error => {
+          // 处理请求失败的情况
+          if (error.response) {
+            // 请求已发出，服务器返回了非 2xx 的状态码
+            console.error("Server responded with status:", error.response.status);
+            toast.error(error.message, {
+              position: "top-right",
+              timeout: 3000,
+            });
+          } else if (error.request) {
+            // 请求已发出，但没有收到响应
+            console.error("No response received:", error.request);
+          }
+          this.loading = false;
+        });
     },
   },
 };
