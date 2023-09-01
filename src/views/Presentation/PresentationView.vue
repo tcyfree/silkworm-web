@@ -25,8 +25,11 @@ import logoNginx from "@/assets/img/logos/nginx.svg";
 import logoFlask from "@/assets/img/logos/flaks-logo.png";
 import logoVue from "@/assets/img/logos/vue.jpg";
 import logoDocker from "@/assets/img/logos/docker.png";
-import logoReact from "@/assets/img/logos/react.jpg";
 import logoSketch from "@/assets/img/logos/sketch.jpg";
+import miniprogramScreenshot from "@/assets/img/miniprogram.png";
+import miniprogramQrCode from "@/assets/img/miniprogram-qr-code.jpg";
+
+
 
 //Vue Material Kit 2 components
 import MaterialInput from "@/components/MaterialInput.vue";
@@ -281,8 +284,21 @@ onUnmounted(() => {
         </div>
       </div>
     </div>
-
-    <div class="container">
+    <div class="container" style="margin-top: 3rem;">
+      <div class="row" style="justify-content: center; align-items: center;">
+        <!-- <h3 style="text-align: center; margin-bottom: 1rem;">移动平台</h3> -->
+        <div class="col-xl-5 col-lg-6 col-md-7" style="text-align: center;">
+          <img :src="miniprogramQrCode" style="margin: 0 !important; height: 15rem;" class="img-fluid border-radius-lg mb-3 uploaded-image"/>
+          <div class="border-radius-lg p-3" style="text-align: center;">
+            <h4 class="text-success mb-3" style="letter-spacing: 5px;">小程序二维码</h4>
+          </div>
+        </div>
+        <div class="col-xl-5 col-lg-6 col-md-7" style="text-align: center;">
+          <img :src="miniprogramScreenshot" alt="Preview" style="margin: 0 !important; height: 45rem;" class="img-fluid border-radius-lg mb-3 uploaded-image"/>
+        </div>
+      </div>
+    </div>
+    <div class="container" style="margin-bottom: -5rem;">
       <div class="row">
         <div class="d-flex flex-column w-100 text-center p-5 mb-8">
           <h3>技术支撑</h3>
@@ -388,7 +404,7 @@ onUnmounted(() => {
         </div>
       </div>
     </div>
-    <div class="container">
+    <!-- <div class="container">
         <div class="row">
           <div class="col-lg-3 ms-auto">
             <p class="lead mb-0">感谢您的分享！<span class='material-icons'>ios_share</span></p>
@@ -399,7 +415,7 @@ onUnmounted(() => {
             <MaterialSocialButton route="#" component="pinterest" color="pinterest" label="Pin it"/>
           </div>
         </div>
-      </div>
+      </div> -->
   </div>
   <DefaultFooter />
   <!-- The Modal -->
@@ -447,6 +463,8 @@ export default {
       server_url: "http://cxy.ssdlab.cn/",
       previewImage: previewImg,
       detectImage: previewCompressImg,
+      miniprogramScreenshot: miniprogramScreenshot,
+      miniprogramQrCode: miniprogramQrCode,
       selectedAge: 0,
       selectedImg: null,
       detectInfo: [["疑似为血液性脓病", "1.全部淘汰，进行无害化处理。\n 2.对蚕室蚕具和养蚕环境进行彻底消毒。\n 3.查明病原来源，避免再次感染。\n4.重新饲养下一批蚕。\n", "100%"]],
