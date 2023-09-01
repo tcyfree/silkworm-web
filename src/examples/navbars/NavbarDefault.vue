@@ -764,10 +764,10 @@ watch(
   <!-- The Modal -->
   <div class="modal" id="LogOut">
     <!-- 设定为视口高度的 80%  -->
-    <div class="modal-dialog" style="max-width: 40%;"> 
+    <div class="modal-dialog modal-dialog-centered" style="max-width: 30%;"> 
       <div class="modal-content">
         <!-- Modal body -->
-        <div class="modal-body" style="display: flex;justify-content: center;align-items: center;height: 7rem;">
+        <div class="modal-body" style="display: flex;justify-content: center;align-items: center;height: 9rem;">
           <button type="button" class="btn btn-danger" @click="LogOut" style="font-size: 1.375rem; margin-bottom: 0;">退出登录</button>
         </div>
         <!-- Modal footer -->
