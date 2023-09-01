@@ -96,8 +96,7 @@ onMounted(() => {
                   <p class="mt-4 text-sm text-center">
                     没有账户？
                     <a
-                      href="#"
-                      class="text-success text-gradient font-weight-bold"
+                      class="text-success text-gradient font-weight-bold" data-bs-toggle="modal" data-bs-target="#registerModal"
                       >注册</a
                     >
                   </p>
@@ -109,6 +108,43 @@ onMounted(() => {
       </div>
     </div>
   </Header>
+  <div class="modal" id="registerModal">
+    <!-- 设定为视口高度的 80%  -->
+    <div class="modal-dialog  custom-centered" style="max-width: 30%;"> 
+      <div class="modal-content">
+        <!-- Modal body -->
+        <div class="modal-body" style="display: flex;justify-content: center;">
+          <div class="card-body">
+                <form role="form" class="text-start" @submit.prevent="Add">
+                  <div class="input-group input-group-outline my-3">
+                    <label style="font-size: 1rem;" class="form-label">账号</label>
+                    <input id="register-username" type="text" class="form-control"/>
+                  </div>
+                  <MaterialInput
+                    id="register-password"
+                    class="input-group-outline mb-3"
+                    :label="{ text: '密码', class: 'form-label' }"
+                    type="password"
+                  />
+                  <div class="text-center">
+                    <MaterialButton style="font-size: 1.175rem;"
+                      class="my-4 mb-2"
+                      variant="gradient"
+                      color="success"
+                      fullWidth
+                      >注册</MaterialButton
+                    >
+                  </div>
+                </form>
+              </div>
+        </div>
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" style="margin-bottom: 0;">关闭</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 <script>
 import axios from 'axios';
@@ -164,6 +200,45 @@ export default {
           });
         });
     },
+    Add() {
+      const toast = useToast();
+      let password = document.getElementById("register-password").value;
+      let username = document.getElementById("register-username").value;
+      console.log(username, password)
+      if (!username || !password) {
+        toast.warning("请填写账号和密码", {
+          position: "top-right",
+          timeout: 2000,
+        });
+        return
+      }
+      const data = {
+        username: username,
+        password: password
+      };
+      axios.post(this.server_url + "/api/passport/add", data)
+        .then((response) => {
+          if (response.data.success === true) {
+            toast.success(response.data.msg, {
+              position: "top-right",
+              timeout: 1500,
+            });
+            window.location.href = '/pages/landing-pages/basic';
+          } else {
+            toast.error(response.data.msg, {
+              position: "top-right",
+              timeout: 3000,
+            });
+          }
+        })
+        .catch(error => {
+          console.log(error)
+          toast.error('Login error', {
+              position: "top-right",
+              timeout: 3000,
+          });
+        });
+    },
   },
 };
 </script>
@@ -172,5 +247,14 @@ export default {
     text-align: center;
     color: #9abcda!important;
     font-size: 1rem;
+}
+.custom-centered {
+  display: flex;
+  align-items: center;
+  min-height: calc(100% - 100px); /* 调整这个值以适应您的页面布局 */
+}
+
+.custom-centered .modal-content {
+  margin: auto;
 }
 </style>

@@ -405,7 +405,7 @@ onUnmounted(() => {
   <!-- The Modal -->
   <div class="modal" id="detectModal">
     <!-- 设定为视口高度的 80%  -->
-    <div class="modal-dialog" style="max-width: 40%;"> 
+    <div class="modal-dialog custom-centered" style="max-width: 40%;"> 
       <div class="modal-content">
         <!-- Modal body -->
         <div class="modal-body" style="display: flex;justify-content: center;">
@@ -420,7 +420,7 @@ onUnmounted(() => {
   </div>
   <div class="modal" id="previewModal">
     <!-- 设定为视口高度的 80%  -->
-    <div class="modal-dialog" style="max-width: 40%;"> 
+    <div class="modal-dialog custom-centered" style="max-width: 40%;"> 
       <div class="modal-content">
         <!-- Modal body -->
         <div class="modal-body" style="display: flex;justify-content: center;">
@@ -512,7 +512,7 @@ export default {
           this.loading = false;
           toast.success("检测成功！", {
             position: "top-right",
-            timeout: 3000,
+            timeout: 1500,
           });
           if (response.status != 200) {
             alert("请重新上传，图片格式错误或服务器内部错误！");
@@ -590,5 +590,16 @@ export default {
 
 .uploaded-image {
   max-height: 100%;
+}
+
+/* modal position middle */
+.custom-centered {
+  display: flex;
+  align-items: center;
+  min-height: calc(100% - 100px); /* 调整这个值以适应您的页面布局 */
+}
+
+.custom-centered .modal-content {
+  margin: auto;
 }
 </style>
