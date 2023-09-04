@@ -150,7 +150,7 @@ watch(
               class="nav-link ps-2 d-flex cursor-pointer align-items-center"
             >
               <i class="material-icons opacity-6 me-2 text-md" :class="getTextColor()">home</i>
-              <router-link :class="getTextColor()" to="/">首页</router-link>
+              <router-link :class="getTextColor()" style="font-size:1rem;"  to="/">首页</router-link>
             </a>
           </li>
           <li class="nav-item dropdown dropdown-hover mx-2">
@@ -158,7 +158,7 @@ watch(
               class="nav-link ps-2 d-flex cursor-pointer align-items-center"
             >
               <i class="material-icons opacity-6 me-2 text-md" :class="getTextColor()">biotech</i>
-              <router-link :class="getTextColor()" to="/pages/landing-pages/purport">项目基础情况</router-link>
+              <router-link :class="getTextColor()" style="font-size:1rem;" to="/pages/landing-pages/purport">项目基础情况</router-link>
             </a>
           </li>
           <li class="nav-item dropdown dropdown-hover mx-2">
@@ -166,7 +166,7 @@ watch(
               class="nav-link ps-2 d-flex cursor-pointer align-items-center"
             >
               <i class="material-icons opacity-6 me-2 text-md" :class="getTextColor()">grid_view</i>
-              <router-link :class="getTextColor()" to="/pages/landing-pages/scheme">项目规模</router-link>
+              <router-link :class="getTextColor()" style="font-size:1rem;" to="/pages/landing-pages/scheme">项目规模</router-link>
             </a>
           </li>
           <li class="nav-item dropdown dropdown-hover mx-2">
@@ -176,7 +176,7 @@ watch(
               :class="getTextColor()"
               id="dropdownMenuPages"
               data-bs-toggle="dropdown"
-              aria-expanded="false"
+              aria-expanded="false"  style="font-size:1rem;" 
             >
               <i
                 class="material-icons opacity-6 me-2 text-md"
@@ -209,13 +209,13 @@ watch(
                       </div>
                       <RouterLink
                         :to="{ name: 'about' }"
-                        class="dropdown-item border-radius-md"
+                        class="dropdown-item border-radius-md"  style="font-size:1rem;" 
                       >
                         <span>关于我们</span>
                       </RouterLink>
                       <RouterLink
                         :to="{ name: 'contactus' }"
-                        class="dropdown-item border-radius-md"
+                        class="dropdown-item border-radius-md"  style="font-size:1rem;" 
                       >
                         <span>联系我们</span>
                       </RouterLink>
