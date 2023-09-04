@@ -199,7 +199,7 @@ onUnmounted(() => {
               description="数据采集来自实际生产和实验室环境的正常和患病桑蚕样本。并且我们也运用对抗生成网络（GAN）图像生成技术，在人工标记的样本上进行学习，生成更多高质量的训练样本。这有助于解决高成本的样本标注和样本不足的问题，更准确地捕捉不同疾病情况，从而在实际应用中取得更好的效果。"
               :action="[
                 {
-                  route: './/sections/page-sections/hero-sections.html',
+                  route: '/pages/landing-pages/scheme',
                   label: '更多',
                 },
               ]"
@@ -234,7 +234,7 @@ onUnmounted(() => {
               description="从蚕盘视频监控或者照片作为识别桑蚕疾病的前置步骤，通过采用基于改进的YOLOv5方法，可以有效地降低识别所需的时间成本，从而显著提升对桑蚕个体进行扫描检测时的识别准确率。这种方法不仅可以更快速地发现潜在的疾病迹象，还能够在更广泛的环境中实现更准确的检测结果。"
               :action="[
                 {
-                  route: './/sections/page-sections/hero-sections.html',
+                  route: '/pages/landing-pages/scheme',
                   label: '更多',
                 },
               ]"
@@ -269,7 +269,7 @@ onUnmounted(() => {
               description="基于深度卷积神经网络的图像分类模型由于受到样本质量的影响，在特征学习的过程中，可能呈现出模型难收敛、模型泛化性不高等不足，为了解决该问题，拟采用改进的残差网络ResNet和InceptionNet相融合的模型，根据桑蚕病征特点，优化深度网络结构，减少模型自由参数个数，降低网络的训练难度。"
               :action="[
                 {
-                  route: './/sections/page-sections/hero-sections.html',
+                  route: '/pages/landing-pages/scheme',
                   label: '更多',
                 },
               ]"
@@ -294,7 +294,7 @@ onUnmounted(() => {
       <div class="row" style="justify-content: center; align-items: center;">
         <!-- <h3 style="text-align: center; margin-bottom: 1rem;">移动平台</h3> -->
         <div class="col-xl-5 col-lg-6 col-md-7" style="text-align: center;">
-          <img :src="miniprogramQrCode" style="margin: 0 !important; height: 15rem;" class="img-fluid border-radius-lg mb-3 uploaded-image"/>
+          <img :src="miniprogramQrCode" style="margin: 0 !important; height: 16rem;" class="img-fluid border-radius-lg mb-3 uploaded-image"/>
           <div class="border-radius-lg p-3" style="text-align: center;">
             <h4 class="text-success mb-3" style="letter-spacing: 5px;">小程序二维码</h4>
           </div>

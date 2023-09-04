@@ -19,7 +19,7 @@ import overviewImg from "@/assets/img/overview.png";
               自动化、工厂化和智能化养蚕生产线技术改变了传统养蚕模式，实现蚕桑工厂化饲育，进一步完善了蚕桑配套技术产业链，达到了节省人力并提升中养蚕效率的目标。然而，由于缺乏蚕农和技术专家的实时跟踪和疾病预警，现代化养蚕生产线容易造成病情报告延误和误判的问题，导致不能及时的对桑蚕疾病做出响应和干预，严重影响经济效益。
             </p>
             <a
-              href=""
+              href="/pages/landing-pages/purport"
               class="text-white icon-move-right"
             >
               阅读更多
