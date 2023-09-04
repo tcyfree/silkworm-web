@@ -31,16 +31,16 @@ defineProps({
         <img :src="image" :alt="title" class="img-fluid border-radius-lg" />
       </a>
     </div>
-    <div class="card-body text-center">
+    <div class="card-body">
       <h5 class="font-weight-normal">
         <a href="javascript:;">{{ title }}</a>
       </h5>
       <p class="mb-0">
         {{ description }}
       </p>
-      <button type="button" class="btn btn-sm mb-0 mt-3" :class="action.color">
+      <!-- <button type="button" class="btn btn-sm mb-0 mt-3" :class="action.color">
         {{ action.label }}
-      </button>
+      </button> -->
     </div>
   </div>
 </template>

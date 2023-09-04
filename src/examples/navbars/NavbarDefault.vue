@@ -211,19 +211,13 @@ watch(
                         :to="{ name: 'about' }"
                         class="dropdown-item border-radius-md"
                       >
-                        <span>About Us</span>
+                        <span>项目成员</span>
                       </RouterLink>
                       <RouterLink
                         :to="{ name: 'contactus' }"
                         class="dropdown-item border-radius-md"
                       >
-                        <span>Contact Us</span>
-                      </RouterLink>
-                      <RouterLink
-                        :to="{ name: 'author' }"
-                        class="dropdown-item border-radius-md"
-                      >
-                        <span>Author</span>
+                        <span>联系我们</span>
                       </RouterLink>
                     </div>
                   </div>
