@@ -44,7 +44,7 @@ onUnmounted(() => {
 </script>
 <template>
   <DefaultNavbar
-    transparent
+    
   />
   <Header>
     <div

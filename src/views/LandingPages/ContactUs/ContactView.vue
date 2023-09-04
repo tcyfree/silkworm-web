@@ -23,7 +23,7 @@ onMounted(() => {
 </script>
 <template>
   <DefaultNavbar
-    transparent
+    
   />
   <Header>
     <div

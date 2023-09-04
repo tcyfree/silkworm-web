@@ -17,7 +17,7 @@ import vueMkHeader from "@/assets/img/bg6.png";
 
 </script>
 <template>
-  <DefaultNavbar transparent />
+  <DefaultNavbar  />
   <Header>
     <div
       class="page-header min-height-400"

@@ -16,7 +16,7 @@ import image from "@/assets/img/city-profile.jpg";
 import silkworm from "@/assets/img/silkworm.png";
 </script>
 <template>
-  <DefaultNavbar transparent />
+  <DefaultNavbar  />
   <Header>
     <div
       class="page-header min-height-400"

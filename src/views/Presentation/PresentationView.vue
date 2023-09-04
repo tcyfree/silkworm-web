@@ -53,7 +53,7 @@ onUnmounted(() => {
 
 <template>
   <DefaultNavbar
-    transparent
+    
   />
   <Header>
     <div
