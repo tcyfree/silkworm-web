@@ -2,6 +2,7 @@
 // example components
 import DefaultInfoCard from "../../../../examples/cards/infoCards/DefaultInfoCard.vue";
 import CenteredBlogCard from "../../../../examples/cards/blogCards/CenteredBlogCard.vue";
+import teamImg from "@/assets/img/team.png";
 </script>
 <template>
   <section class="py-7">
@@ -38,10 +39,22 @@ import CenteredBlogCard from "../../../../examples/cards/blogCards/CenteredBlogC
           </div>
         </div>
         <div class="col-lg-4 ms-auto mt-lg-0 mt-6" style="display:flex; align-items:center; justify-content:center">
-          <CenteredBlogCard
-            image="/src/assets/img/team.png"
-            description="成立项目实施小组，主要负责项目实施方案的制定、组织实施、指导、督促、检查等工作，对具体承担项目实施的项目工作人员实行年度目标生产管理制，明确责任，狠抓落实。 同时，项目定期开展总结研讨，按照要求向上级管理部门和单位管理部门报送进展情况，接受监督检查，确保项目建设内容的完全实现。"
-          />
+          <div class="card">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2" style="display:flex; justify-content:center;">
+              <a class="d-block blur-shadow-image">
+                <img src="/src/assets/img/team.png" :alt="title" class="img-fluid border-radius-lg" />
+              </a>
+            </div>
+            <div class="card-body">
+              <h5 class="font-weight-normal">
+                <a href="javascript:;">{{ title }}</a>
+              </h5>
+              <p class="mb-0">
+        成立项目实施小组，主要负责项目实施方案的制定、组织实施、指导、督促、检查等工作，对具体承担项目实施的项目工作人员实行年度目标生产管理制，明确责任，狠抓落实。 同时，项目定期开展总结研讨，按照要求向上级管理部门和单位管理部门报送进展情况，接受监督检查，确保项目建设内容的完全实现。
+              </p>
+            </div>
+          </div>
+          
         </div>
       </div>
     </div>
