@@ -9,6 +9,7 @@ import Footer from "../Author/Sections/AuthorFooter.vue";
 import Profile from "./SchemeProfile.vue";
 import Posts from "../Author/Sections/AuthorPosts.vue";
 import Contact from "../Author/Sections/AuthorContact.vue";
+import vueMkHeader from "@/assets/img/bg6.png";
 
 // image
 import image from "@/assets/img/city-profile.jpg";
@@ -19,10 +20,9 @@ import silkworm from "@/assets/img/silkworm.png";
   <Header>
     <div
       class="page-header min-height-400"
-      :style="{ backgroundImage: `url(${silkworm})` }"
+      :style="{ backgroundImage: `url(${vueMkHeader})` }"
       loading="lazy"
     >
-      <span class="mask bg-gradient-success opacity-3"></span>
     </div>
   </Header>
   <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6 mb-4">

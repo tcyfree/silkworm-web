@@ -15,7 +15,7 @@ import PresentationCounter from "./Sections/PresentationCounter.vue";
 import BuiltByDevelopers from "./Components/BuiltByDevelopers.vue";
 
 //images
-import vueMkHeader from "@/assets/img/silkworm.jpg";
+import silkworm from "@/assets/img/silkworm.png";
 import oneImg from "@/assets/img/1.png";
 import iconImg from "@/assets/img/icon.png";
 import previewImg from "@/assets/img/preview.jpg";
@@ -37,6 +37,7 @@ import MaterialInput from "@/components/MaterialInput.vue";
 import MaterialTextArea from "@/components/MaterialTextArea.vue";
 import MaterialButton from "@/components/MaterialButton.vue";
 import MaterialSocialButton from "@/components/MaterialSocialButton.vue";
+import DefaultNavbar from "@/examples/navbars/NavbarDefault.vue";
 
 //hooks
 const body = document.getElementsByTagName("body")[0];
@@ -51,19 +52,16 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="container z-index-sticky top-0">
-    <div class="row">
-      <div class="col-12">
-        <NavbarDefault :sticky="true" />
-      </div>
-    </div>
-  </div>
+  <DefaultNavbar
+    transparent
+  />
   <Header>
     <div
-      class="page-header min-vh-75"
-      :style="`background-image: url(${vueMkHeader})`"
+      class="page-header min-height-400"
+      :style="{ backgroundImage: `url(${silkworm})` }"
       loading="lazy"
     >
+      <span class="mask bg-gradient-success opacity-4"></span>
       <div class="container">
         <div class="row">
           <div class="col-lg-7 text-center mx-auto position-relative">

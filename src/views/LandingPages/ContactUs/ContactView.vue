@@ -8,7 +8,7 @@ import DefaultFooter from "@/examples/footers/FooterDefault.vue";
 //image
 import image from "@/assets/img/illustrations/illustration-signin.jpg";
 //image
-import bg0 from "@/assets/img/bg9.jpg";
+import bg0 from "@/assets/img/bg4.png";
 
 //material components
 import MaterialInput from "@/components/MaterialInput.vue";

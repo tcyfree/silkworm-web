@@ -211,7 +211,7 @@ watch(
                         :to="{ name: 'about' }"
                         class="dropdown-item border-radius-md"
                       >
-                        <span>项目成员</span>
+                        <span>关于我们</span>
                       </RouterLink>
                       <RouterLink
                         :to="{ name: 'contactus' }"

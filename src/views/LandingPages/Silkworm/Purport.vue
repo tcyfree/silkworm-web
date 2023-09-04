@@ -13,16 +13,17 @@ import Contact from "../Author/Sections/AuthorContact.vue";
 // image
 import image from "@/assets/img/city-profile.jpg";
 import silkworm from "@/assets/img/silkworm.png";
+import vueMkHeader from "@/assets/img/bg6.png";
+
 </script>
 <template>
   <DefaultNavbar transparent />
   <Header>
     <div
       class="page-header min-height-400"
-      :style="{ backgroundImage: `url(${silkworm})` }"
+      :style="{ backgroundImage: `url(${vueMkHeader})` }"
       loading="lazy"
     >
-      <span class="mask bg-gradient-success opacity-3"></span>
     </div>
   </Header>
   <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6 mb-4">
