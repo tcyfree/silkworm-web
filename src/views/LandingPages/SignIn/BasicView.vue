@@ -9,7 +9,8 @@ import Header from "@/examples/Header.vue";
 import MaterialInput from "@/components/MaterialInput.vue";
 import MaterialSwitch from "@/components/MaterialSwitch.vue";
 import MaterialButton from "@/components/MaterialButton.vue";
-import vueMkHeader from "@/assets/img/silkworm.jpg";
+// import vueMkHeader from "@/assets/img/background.svg";
+import vueMkHeader from "@/assets/img/2.svg";
 
 // material-input
 import setMaterialInput from "@/assets/js/material-input";
@@ -18,11 +19,17 @@ onMounted(() => {
 });
 </script>
 <template>
-  <DefaultNavbar transparent />
+  <DefaultNavbar transparent dark/>
   <Header>
     <div
       class="page-header align-items-start min-vh-100"
-      :style="`background-image: url(${vueMkHeader})`"
+      :style="{
+      backgroundImage: `url(${vueMkHeader})`,
+      backgroundSize: '40%',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'left'
+    }"
+
       loading="lazy"
     >
       <div class="container my-auto">

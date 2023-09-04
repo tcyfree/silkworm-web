@@ -37,9 +37,9 @@ import CenteredBlogCard from "../../../../examples/cards/blogCards/CenteredBlogC
             />
           </div>
         </div>
-        <div class="col-lg-4 ms-auto mt-lg-0 mt-6">
+        <div class="col-lg-4 ms-auto mt-lg-0 mt-6" style="display:flex; align-items:center; justify-content:center">
           <CenteredBlogCard
-            image="https://images.unsplash.com/photo-1544717302-de2939b7ef71?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+            image="/src/assets/img/team.png"
             description="成立项目实施小组，主要负责项目实施方案的制定、组织实施、指导、督促、检查等工作，对具体承担项目实施的项目工作人员实行年度目标生产管理制，明确责任，狠抓落实。 同时，项目定期开展总结研讨，按照要求向上级管理部门和单位管理部门报送进展情况，接受监督检查，确保项目建设内容的完全实现。"
           />
         </div>
