@@ -53,7 +53,7 @@ defineProps({
         items: [
           {
             name: "关于我们",
-            // href: "https://www.creative-tim.com/presentation"
+            href: "/pages/landing-pages/about-us"
           },
           { name: "博客", 
           // href: "https://www.creative-tim.com/blog" 
@@ -63,7 +63,10 @@ defineProps({
       {
         name: "资源",
         items: [
-          { name: "数据集", href: "https://iradesign.io/" },
+          { 
+            name: "数据集", 
+            // href: "https://iradesign.io/" 
+          },
           {
             name: "相关项目",
             // href: "https://www.creative-tim.com/affiliates/new"
@@ -75,15 +78,15 @@ defineProps({
         items: [
           {
             name: "联系我们",
-            // href: "https://www.creative-tim.com/contact-us"
+            href: "/pages/landing-pages/contact-us"
           },
           {
             name: "帮助中心",
-            // href: "https://www.creative-tim.com/knowledge-center"
+            href: "/pages/landing-pages/contact-us"
           },
           {
             name: "定制开发",
-            // href: "https://services.creative-tim.com/"
+            href: "/pages/landing-pages/contact-us"
           },
         ]
       },
