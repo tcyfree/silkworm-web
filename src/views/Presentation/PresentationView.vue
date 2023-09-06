@@ -516,13 +516,13 @@ export default {
         });
         return
       }
-      if(!localStorage.getItem('LoggedIn')){
-        toast.error("请先登录！", {
-          position: "top-right",
-          timeout: 3000,
-        });
-        return
-      }
+      // if(!localStorage.getItem('LoggedIn')){
+      //   toast.error("请先登录！", {
+      //     position: "top-right",
+      //     timeout: 3000,
+      //   });
+      //   return
+      // }
       this.loading = true;
       let param = new FormData(); //创建form对象
       param.append("file", uploadImg, uploadImg.name); //通过append向form对象添加数据
