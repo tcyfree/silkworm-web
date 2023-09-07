@@ -23,7 +23,7 @@ import DefaultCounterCard from "../../../examples/cards/counterCards/DefaultCoun
               <DefaultCounterCard
                 color="success"
                 title="蚕等级分类数据"
-                description="通过中心裁剪, 减低分辨率等数据预处理方法以及对较少样品类进行数据增强, 得到共1885张图片的蚕分类数据集。"
+                description="通过采用一系列数据预处理方法，如中心裁剪、分辨率降低等，以及对样本较少的类别进行数据增强，我们成功创建了一个包含1885张图像的蚕分类数据集。"
                 :count="1800"
                 suffix="+"
                 :duration="3000"
@@ -33,9 +33,9 @@ import DefaultCounterCard from "../../../examples/cards/counterCards/DefaultCoun
             <div class="col-md-4">
               <DefaultCounterCard
                 color="success"
-                title="等级"
-                description="采集样品共分为4个等级, 分别为一级、二级、三级以及四级。"
-                :count="4"
+                title="监测龄级段"
+                description="三龄、四龄和五龄幼虫是3个关键时期，因为桑蚕的健康状况对于丝绸产量和质量具有直接影响及早发现并采取措施来应对潜在的疾病问题对于养蚕业非常重要。"
+                :count="3"
                 :duration="6000"
               />
             </div>
