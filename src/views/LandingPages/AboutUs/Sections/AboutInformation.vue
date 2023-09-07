@@ -34,7 +34,7 @@ import teamImg from "@/assets/img/team.png";
               color="info"
               icon="3p"
               title="合作伙伴和社区"
-              description="与大学和研究机构合作，开展科学研究和数据验证，并与当地农民合作社建立合作关系，协助数据收集和传播疾病防治信息"
+              description="与大学和研究机构合作，开展科学研究和数据验证，并与当地农民合作社建立合作关系，协助数据收集和传播疾病防治信息。"
             />
           </div>
         </div>
